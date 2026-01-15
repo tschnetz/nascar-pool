@@ -1,0 +1,30 @@
+# Environment files with secrets
+.env
+*.env.local
+
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Build outputs
+frontend/.svelte-kit/
+frontend/build/
+dist/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# PDFs (optional - can be large)
+# frontend/static/*.pdf

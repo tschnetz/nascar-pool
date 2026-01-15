@@ -1,0 +1,361 @@
+{
+  "teams": [
+    {
+      "carNumber": "1",
+      "chartered": true,
+      "driver": "Ross Chastain",
+      "manufacturer": "Chevrolet",
+      "team": "Trackhouse Racing"
+    },
+    {
+      "carNumber": "2",
+      "chartered": true,
+      "driver": "Austin Cindric",
+      "manufacturer": "Ford",
+      "team": "Team Penske"
+    },
+    {
+      "carNumber": "3",
+      "chartered": true,
+      "driver": "Austin Dillon",
+      "manufacturer": "Chevrolet",
+      "team": "Richard Childress Racing"
+    },
+    {
+      "carNumber": "4",
+      "chartered": true,
+      "driver": "Noah Gragson",
+      "manufacturer": "Ford",
+      "team": "Front Row Motorsports"
+    },
+    {
+      "carNumber": "5",
+      "chartered": true,
+      "driver": "Kyle Larson",
+      "manufacturer": "Chevrolet",
+      "team": "Hendrick Motorsports"
+    },
+    {
+      "carNumber": "6",
+      "chartered": true,
+      "driver": "Brad Keselowski",
+      "manufacturer": "Ford",
+      "team": "Roush Fenway Keselowski Racing"
+    },
+    {
+      "carNumber": "7",
+      "chartered": true,
+      "driver": "Daniel Suarez",
+      "manufacturer": "Chevrolet",
+      "team": "Spire Motorsports"
+    },
+    {
+      "carNumber": "8",
+      "chartered": true,
+      "driver": "Kyle Busch",
+      "manufacturer": "Chevrolet",
+      "team": "Richard Childress Racing"
+    },
+    {
+      "carNumber": "9",
+      "chartered": true,
+      "driver": "Chase Elliott",
+      "manufacturer": "Chevrolet",
+      "team": "Hendrick Motorsports"
+    },
+    {
+      "carNumber": "10",
+      "chartered": true,
+      "driver": "Ty Dillon",
+      "manufacturer": "Chevrolet",
+      "team": "Kaulig Racing"
+    },
+    {
+      "carNumber": "11",
+      "chartered": true,
+      "driver": "Denny Hamlin",
+      "manufacturer": "Toyota",
+      "team": "Joe Gibbs Racing"
+    },
+    {
+      "carNumber": "12",
+      "chartered": true,
+      "driver": "Ryan Blaney",
+      "manufacturer": "Ford",
+      "team": "Team Penske"
+    },
+    {
+      "carNumber": "16",
+      "chartered": true,
+      "driver": "AJ Allmendinger",
+      "manufacturer": "Chevrolet",
+      "team": "Kaulig Racing"
+    },
+    {
+      "carNumber": "17",
+      "chartered": true,
+      "driver": "Chris Buescher",
+      "manufacturer": "Ford",
+      "team": "Roush Fenway Keselowski Racing"
+    },
+    {
+      "carNumber": "19",
+      "chartered": true,
+      "driver": "Chase Briscoe",
+      "manufacturer": "Toyota",
+      "team": "Joe Gibbs Racing"
+    },
+    {
+      "carNumber": "20",
+      "chartered": true,
+      "driver": "Christopher Bell",
+      "manufacturer": "Toyota",
+      "team": "Joe Gibbs Racing"
+    },
+    {
+      "carNumber": "21",
+      "chartered": true,
+      "driver": "Josh Berry",
+      "manufacturer": "Ford",
+      "team": "Wood Brothers Racing"
+    },
+    {
+      "carNumber": "22",
+      "chartered": true,
+      "driver": "Joey Logano",
+      "manufacturer": "Ford",
+      "team": "Team Penske"
+    },
+    {
+      "carNumber": "23",
+      "chartered": true,
+      "driver": "Bubba Wallace",
+      "manufacturer": "Toyota",
+      "team": "23XI Racing"
+    },
+    {
+      "carNumber": "24",
+      "chartered": true,
+      "driver": "William Byron",
+      "manufacturer": "Chevrolet",
+      "team": "Hendrick Motorsports"
+    },
+    {
+      "carNumber": "34",
+      "chartered": true,
+      "driver": "Todd Gilliland",
+      "manufacturer": "Ford",
+      "team": "Front Row Motorsports"
+    },
+    {
+      "carNumber": "35",
+      "chartered": true,
+      "driver": "Riley Herbst",
+      "manufacturer": "Toyota",
+      "team": "23XI Racing"
+    },
+    {
+      "carNumber": "38",
+      "chartered": true,
+      "driver": "Zane Smith",
+      "manufacturer": "Ford",
+      "team": "Front Row Motorsports"
+    },
+    {
+      "carNumber": "41",
+      "chartered": true,
+      "driver": "Cole Custer",
+      "manufacturer": "Chevrolet",
+      "team": "Haas Factory Team"
+    },
+    {
+      "carNumber": "42",
+      "chartered": true,
+      "driver": "John Hunter Nemechek",
+      "manufacturer": "Toyota",
+      "team": "Legacy Motor Club"
+    },
+    {
+      "carNumber": "43",
+      "chartered": true,
+      "driver": "Erik Jones",
+      "manufacturer": "Toyota",
+      "team": "Legacy Motor Club"
+    },
+    {
+      "carNumber": "45",
+      "chartered": true,
+      "driver": "Tyler Reddick",
+      "manufacturer": "Toyota",
+      "team": "23XI Racing"
+    },
+    {
+      "carNumber": "47",
+      "chartered": true,
+      "driver": "Ricky Stenhouse Jr.",
+      "manufacturer": "Chevrolet",
+      "team": "HYAK Motorsports"
+    },
+    {
+      "carNumber": "48",
+      "chartered": true,
+      "driver": "Alex Bowman",
+      "manufacturer": "Chevrolet",
+      "team": "Hendrick Motorsports"
+    },
+    {
+      "carNumber": "51",
+      "chartered": true,
+      "driver": "Cody Ware",
+      "manufacturer": "Chevrolet",
+      "team": "Rick Ware Racing"
+    },
+    {
+      "carNumber": "54",
+      "chartered": true,
+      "driver": "Ty Gibbs",
+      "manufacturer": "Toyota",
+      "team": "Joe Gibbs Racing"
+    },
+    {
+      "carNumber": "60",
+      "chartered": true,
+      "driver": "Ryan Preece",
+      "manufacturer": "Ford",
+      "team": "Roush Fenway Keselowski"
+    },
+    {
+      "carNumber": "71",
+      "chartered": true,
+      "driver": "Michael McDowell",
+      "manufacturer": "Chevrolet",
+      "team": "Spire Motorsports"
+    },
+    {
+      "carNumber": "77",
+      "chartered": true,
+      "driver": "Carson Hocevar",
+      "manufacturer": "Chevrolet",
+      "team": "Spire Motorsports"
+    },
+    {
+      "carNumber": "88",
+      "chartered": true,
+      "driver": "Connor Zilisch",
+      "manufacturer": "Chevrolet",
+      "team": "Trackhouse"
+    },
+    {
+      "carNumber": "97",
+      "chartered": true,
+      "driver": "Shane van Gisbergen",
+      "manufacturer": "Chevrolet",
+      "team": "Trackhouse Racing"
+    },
+    {
+      "carNumber": "01",
+      "chartered": false,
+      "driver": "Corey LaJoie",
+      "manufacturer": "Ford",
+      "team": "Rick Ware Racing"
+    },
+    {
+      "carNumber": "13",
+      "chartered": false,
+      "driver": "TBD",
+      "manufacturer": "Chevrolet",
+      "team": "Kaulig Racing"
+    },
+    {
+      "carNumber": "15",
+      "chartered": false,
+      "driver": "TBD",
+      "manufacturer": "Ford",
+      "team": "Rick Ware Racing"
+    },
+    {
+      "carNumber": "33",
+      "chartered": false,
+      "driver": "Austin Hill",
+      "manufacturer": "Chevrolet",
+      "team": "Richard Childress Racing"
+    },
+    {
+      "carNumber": "40",
+      "chartered": false,
+      "driver": "Justin Allgaier",
+      "manufacturer": "Chevrolet",
+      "team": "JR Motorsports"
+    },
+    {
+      "carNumber": "44",
+      "chartered": false,
+      "driver": "J.J. Yeley",
+      "manufacturer": "Chevrolet",
+      "team": "NY Racing Team"
+    },
+    {
+      "carNumber": "50",
+      "chartered": false,
+      "driver": "TBD",
+      "manufacturer": "Chevrolet",
+      "team": "Team Amerivet Racing"
+    },
+    {
+      "carNumber": "56",
+      "chartered": false,
+      "driver": "Martin Truex Jr.",
+      "manufacturer": "Toyota",
+      "team": "TRICON"
+    },
+    {
+      "carNumber": "62",
+      "chartered": false,
+      "driver": "Anthony Alfredo",
+      "manufacturer": "Chevrolet",
+      "team": "Beard Oil Racing"
+    },
+    {
+      "carNumber": "66",
+      "chartered": false,
+      "driver": "TBD",
+      "manufacturer": "Ford",
+      "team": "Garage 66"
+    },
+    {
+      "carNumber": "67",
+      "chartered": false,
+      "driver": "Corey Heim",
+      "manufacturer": "Toyota",
+      "team": "23XI Racing"
+    },
+    {
+      "carNumber": "78",
+      "chartered": false,
+      "driver": "BJ McLeod",
+      "manufacturer": "Chevrolet",
+      "team": "Live Fast Motorsports"
+    },
+    {
+      "carNumber": "84",
+      "chartered": false,
+      "driver": "Jimmie Johnson",
+      "manufacturer": "Toyota",
+      "team": "Legacy Motor Club"
+    },
+    {
+      "carNumber": "87",
+      "chartered": false,
+      "driver": "Connor Zilisch",
+      "manufacturer": "Chevrolet",
+      "team": "Trackhouse Racing"
+    },
+    {
+      "carNumber": "91",
+      "chartered": false,
+      "driver": "TBD",
+      "manufacturer": "Chevrolet",
+      "team": "Trackhouse Racing"
+    }
+  ]
+}
