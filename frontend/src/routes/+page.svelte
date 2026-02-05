@@ -1,10 +1,10 @@
-<script lang="ts">
+<script>
 	import { onMount } from 'svelte';
-	import { api, type Standing } from '$lib/api';
+	import { api } from '$lib/api.js';
 
-	let standings = $state<Standing[]>([]);
+	let standings = $state([]);
 	let loading = $state(true);
-	let error = $state<string | null>(null);
+	let error = $state(null);
 
 	onMount(async () => {
 		try {
@@ -17,7 +17,7 @@
 	});
 
 	// Get rank styling
-	function getRankStyle(rank: number): string {
+	function getRankStyle(rank) {
 		if (rank === 1) return 'bg-yellow-400 text-yellow-900';
 		if (rank === 2) return 'bg-gray-300 text-gray-700';
 		if (rank === 3) return 'bg-amber-600 text-amber-100';

@@ -1,15 +1,15 @@
-<script lang="ts">
+<script>
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import { api, type Race, type Driver } from '$lib/api';
+	import { api } from '$lib/api.js';
 
 	// Admin mode check
 	let isAdmin = $derived($page.url.searchParams.get('admin') === 'true');
 
-	let races = $state<Race[]>([]);
-	let drivers = $state<Driver[]>([]);
+	let races = $state([]);
+	let drivers = $state([]);
 	let loading = $state(true);
-	let error = $state<string | null>(null);
+	let error = $state(null);
 
 	// New race form
 	let showForm = $state(false);
@@ -48,7 +48,7 @@
 		}
 	}
 
-	function getStatusStyle(status: string) {
+	function getStatusStyle(status) {
 		switch (status) {
 			case 'completed':
 				return 'bg-green-100 text-green-700';
@@ -59,7 +59,7 @@
 		}
 	}
 
-	function getStatusLabel(status: string) {
+	function getStatusLabel(status) {
 		switch (status) {
 			case 'completed': return 'Complete';
 			case 'in_progress': return 'In Progress';

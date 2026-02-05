@@ -1,12 +1,8 @@
-<script lang="ts">
+<script>
 	import '../app.css';
 	import { page } from '$app/stores';
 
-	interface Props {
-		children: import('svelte').Snippet;
-	}
-
-	let { children }: Props = $props();
+	let { children } = $props();
 
 	// Admin mode check
 	let isAdmin = $derived($page.url.searchParams.get('admin') === 'true');
@@ -21,7 +17,7 @@
 	];
 
 	// Check if route is active
-	function isActive(href: string): boolean {
+	function isActive(href) {
 		if (href === '/') {
 			return $page.url.pathname === '/';
 		}
@@ -29,7 +25,7 @@
 	}
 
 	// Get href with admin param preserved
-	function getHref(href: string): string {
+	function getHref(href) {
 		return isAdmin ? `${href}?admin=true` : href;
 	}
 </script>
@@ -46,7 +42,8 @@
 	</header>
 
 	<!-- Main content area with safe padding -->
-	<main class="px-4 py-4 max-w-3xl mx-auto">
+	<!-- On desktop, add extra top padding to account for the fixed secondary nav bar -->
+	<main class="px-4 py-4 max-w-3xl mx-auto md:pt-16">
 		{@render children()}
 	</main>
 

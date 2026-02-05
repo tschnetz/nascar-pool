@@ -1,13 +1,13 @@
-<script lang="ts">
+<script>
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import { api, type Race, type Team, type Driver } from '$lib/api';
+	import { api } from '$lib/api.js';
 
-	let race = $state<Race | null>(null);
-	let teams = $state<Team[]>([]);
-	let allDrivers = $state<Driver[]>([]);
+	let race = $state(null);
+	let teams = $state([]);
+	let allDrivers = $state([]);
 	let loading = $state(true);
-	let error = $state<string | null>(null);
+	let error = $state(null);
 
 	// Get list of chartered car numbers for this race's teams
 	let assignedCarNumbers = $derived(
@@ -47,19 +47,19 @@
 		}
 	}
 
-	function getPointValue(base: number, rollover: number): number {
+	function getPointValue(base, rollover) {
 		const mult = race?.is_special_race ? 2 : 1;
 		return (base + rollover) * mult;
 	}
 
 	// Extract last name from full name (e.g., "William Byron" -> "Byron")
-	function lastName(fullName: string): string {
+	function lastName(fullName) {
 		const parts = fullName.trim().split(' ');
 		return parts.length > 1 ? parts[parts.length - 1] : fullName;
 	}
 
 	// Find participant who owns a car number
-	function findOwner(carNumber: number): string {
+	function findOwner(carNumber) {
 		const team = teams.find(t =>
 			t.driver1_number === carNumber ||
 			t.driver2_number === carNumber ||
@@ -70,7 +70,7 @@
 	}
 
 	// Get highlight class for a driver based on race results
-	function getDriverHighlight(carNumber: number): string {
+	function getDriverHighlight(carNumber) {
 		if (!race?.results || race.status !== 'completed') return '';
 		const result = race.results.find(r => r.car_number === carNumber);
 		if (!result) return '';

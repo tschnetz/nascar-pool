@@ -1,12 +1,12 @@
-<script lang="ts">
+<script>
 	import { onMount } from 'svelte';
-	import { api, type Race, type Participant, type Team } from '$lib/api';
+	import { api } from '$lib/api.js';
 
-	let races = $state<Race[]>([]);
-	let participants = $state<Participant[]>([]);
-	let allTeams = $state<Map<number, Team[]>>(new Map());
+	let races = $state([]);
+	let participants = $state([]);
+	let allTeams = $state(new Map());
 	let loading = $state(true);
-	let error = $state<string | null>(null);
+	let error = $state(null);
 
 	// Season investment per person
 	const SEASON_INVESTMENT = 1000;
@@ -35,7 +35,7 @@
 	});
 
 	// Get winnings for a participant in a race
-	function getWinnings(raceId: number, participantId: number): number {
+	function getWinnings(raceId, participantId) {
 		const teams = allTeams.get(raceId);
 		if (!teams) return 0;
 		const team = teams.find(t => t.participant_id === participantId);
@@ -43,7 +43,7 @@
 	}
 
 	// Get total winnings for a participant
-	function getTotalWinnings(participantId: number): number {
+	function getTotalWinnings(participantId) {
 		let total = 0;
 		for (const race of races) {
 			if (race.status === 'completed') {
@@ -53,8 +53,19 @@
 		return total;
 	}
 
-	// Count victories (races with winnings > 0)
-	function getVictoryCount(participantId: number): number {
+	// Count victories (races with winnings >= $135, indicating a race win)
+	function getVictoryCount(participantId) {
+		let count = 0;
+		for (const race of races) {
+			if (race.status === 'completed' && getWinnings(race.id, participantId) >= 135) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	// Count races in the money (any winnings > 0)
+	function getRacesInMoney(participantId) {
 		let count = 0;
 		for (const race of races) {
 			if (race.status === 'completed' && getWinnings(race.id, participantId) > 0) {
@@ -65,14 +76,14 @@
 	}
 
 	// Get race total
-	function getRaceTotal(raceId: number): number {
+	function getRaceTotal(raceId) {
 		const teams = allTeams.get(raceId);
 		if (!teams) return 0;
 		return teams.reduce((sum, t) => sum + t.points_earned, 0);
 	}
 
 	// Grand total of all winnings
-	function getGrandTotal(): number {
+	function getGrandTotal() {
 		return participants.reduce((sum, p) => sum + getTotalWinnings(p.id), 0);
 	}
 </script>
@@ -196,7 +207,7 @@
 						<td class="px-1 py-1">Races in the Money</td>
 						<td></td>
 						{#each participants as p}
-							<td class="px-2 py-1 text-center">{getVictoryCount(p.id)}</td>
+							<td class="px-2 py-1 text-center">{getRacesInMoney(p.id)}</td>
 						{/each}
 						<td></td>
 					</tr>

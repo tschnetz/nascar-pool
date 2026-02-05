@@ -1,13 +1,13 @@
-<script lang="ts">
+<script>
 	import { onMount } from 'svelte';
-	import { api, type Driver } from '$lib/api';
+	import { api } from '$lib/api.js';
 
-	let drivers = $state<Driver[]>([]);
+	let drivers = $state([]);
 	let loading = $state(true);
-	let error = $state<string | null>(null);
-	let manufacturerFilter = $state<string>('all');
-	let teamFilter = $state<string>('all');
-	let charteredFilter = $state<string>('chartered');
+	let error = $state(null);
+	let manufacturerFilter = $state('all');
+	let teamFilter = $state('all');
+	let charteredFilter = $state('chartered');
 
 	onMount(async () => {
 		try {
@@ -21,15 +21,15 @@
 
 	// Get unique teams
 	let teams = $derived(
-		[...new Set(drivers.map(d => d.team_name).filter(Boolean))].sort() as string[]
+		[...new Set(drivers.map(d => d.team_name).filter(Boolean))].sort()
 	);
 
 	// Get unique manufacturers
 	let manufacturers = $derived(
-		[...new Set(drivers.map(d => d.manufacturer).filter(Boolean))].sort() as string[]
+		[...new Set(drivers.map(d => d.manufacturer).filter(Boolean))].sort()
 	);
 
-	function getManufacturerStyle(manufacturer?: string) {
+	function getManufacturerStyle(manufacturer) {
 		switch (manufacturer) {
 			case 'Chevrolet': return 'bg-yellow-100 text-yellow-800';
 			case 'Ford': return 'bg-blue-100 text-blue-800';
@@ -38,7 +38,7 @@
 		}
 	}
 
-	function getManufacturerActiveStyle(manufacturer: string) {
+	function getManufacturerActiveStyle(manufacturer) {
 		switch (manufacturer) {
 			case 'Chevrolet': return 'bg-yellow-500 text-white';
 			case 'Ford': return 'bg-blue-600 text-white';
@@ -47,15 +47,15 @@
 		}
 	}
 
-	function getManufacturerCount(manufacturer: string) {
+	function getManufacturerCount(manufacturer) {
 		return drivers.filter(d => d.manufacturer === manufacturer).length;
 	}
 
-	function getTeamCount(team: string) {
+	function getTeamCount(team) {
 		return drivers.filter(d => d.team_name === team).length;
 	}
 
-	function getCharteredCount(chartered: boolean) {
+	function getCharteredCount(chartered) {
 		return drivers.filter(d => d.is_chartered === chartered).length;
 	}
 

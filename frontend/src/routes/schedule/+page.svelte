@@ -1,7 +1,7 @@
-<script lang="ts">
-	import { schedule, type ScheduleEntry } from '$lib/schedule';
+<script>
+	import { schedule } from '$lib/schedule.js';
 
-	function getTvStyle(tv: string): string {
+	function getTvStyle(tv) {
 		switch (tv) {
 			case 'FOX':
 			case 'FS1':

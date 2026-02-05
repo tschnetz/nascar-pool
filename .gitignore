@@ -11,6 +11,13 @@ frontend/.svelte-kit/
 frontend/build/
 dist/
 
+# Python
+__pycache__/
+*.py[cod]
+backend/build/
+backend/logs/
+backend/.briefcase/
+
 # IDE
 .idea/
 *.iml
@@ -19,12 +26,12 @@ dist/
 # OS
 .DS_Store
 
-# Go
-*.exe
-*.exe~
-*.dll
-*.so
-*.dylib
-
-# PDFs (optional - can be large)
-# frontend/static/*.pdf
+# Data files
+/data/
+/backend/src/nascarpool.dist-info/INSTALLER
+/backend/src/nascarpool.dist-info/METADATA
+/backend/src/nascarpool.dist-info/top_level.txt
+/backend/src/nascarpool.dist-info/WHEEL
+/backend/src/nascarpool.dist-info/
+/backend/src/nascarpool/resources/_app/
+/backend/src/nascarpool/resources/

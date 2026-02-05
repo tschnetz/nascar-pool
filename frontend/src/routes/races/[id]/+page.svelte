@@ -1,16 +1,16 @@
-<script lang="ts">
+<script>
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import { api, type Race, type Team, type Driver, type RaceResult } from '$lib/api';
+	import { api } from '$lib/api.js';
 
 	// Admin mode check
 	let isAdmin = $derived($page.url.searchParams.get('admin') === 'true');
 
-	let race = $state<Race | null>(null);
-	let teams = $state<Team[]>([]);
-	let drivers = $state<Driver[]>([]);
+	let race = $state(null);
+	let teams = $state([]);
+	let drivers = $state([]);
 	let loading = $state(true);
-	let error = $state<string | null>(null);
+	let error = $state(null);
 	let actionLoading = $state(false);
 
 	// Edit form
@@ -120,7 +120,7 @@
 		}
 	}
 
-	function getStatusStyle(status: string) {
+	function getStatusStyle(status) {
 		switch (status) {
 			case 'completed': return 'bg-green-100 text-green-700';
 			case 'in_progress': return 'bg-amber-100 text-amber-700';
@@ -128,7 +128,7 @@
 		}
 	}
 
-	function getStatusLabel(status: string) {
+	function getStatusLabel(status) {
 		switch (status) {
 			case 'completed': return 'Complete';
 			case 'in_progress': return 'In Progress';
@@ -136,7 +136,7 @@
 		}
 	}
 
-	function getResultByType(type: 'first' | 'second' | 'last' | 'stage1' | 'stage2'): RaceResult | undefined {
+	function getResultByType(type) {
 		if (!race?.results) return undefined;
 		return race.results.find(r => {
 			switch (type) {
@@ -347,11 +347,11 @@
 		{#if showResultsForm}
 			{@const multiplier = race.is_special_race ? 2 : 1}
 			{@const fields = [
-				{ id: 'first', label: '1st Place', base: 135, rollover: race.rollover_first, bind: () => results.first_place_car_number, set: (v: number) => results.first_place_car_number = v },
-				{ id: 'second', label: '2nd Place', base: 25, rollover: race.rollover_second, bind: () => results.second_place_car_number, set: (v: number) => results.second_place_car_number = v },
-				{ id: 'last', label: 'Last Place', base: 15, rollover: race.rollover_last, bind: () => results.last_place_car_number, set: (v: number) => results.last_place_car_number = v },
-				{ id: 'stage1', label: 'Stage 1 Winner', base: 25, rollover: race.rollover_stage1, bind: () => results.stage1_winner_car_number, set: (v: number) => results.stage1_winner_car_number = v },
-				{ id: 'stage2', label: 'Stage 2 Winner', base: 25, rollover: race.rollover_stage2, bind: () => results.stage2_winner_car_number, set: (v: number) => results.stage2_winner_car_number = v },
+				{ id: 'first', label: '1st Place', base: 135, rollover: race.rollover_first, bind: () => results.first_place_car_number, set: (v) => results.first_place_car_number = v },
+				{ id: 'second', label: '2nd Place', base: 25, rollover: race.rollover_second, bind: () => results.second_place_car_number, set: (v) => results.second_place_car_number = v },
+				{ id: 'last', label: 'Last Place', base: 15, rollover: race.rollover_last, bind: () => results.last_place_car_number, set: (v) => results.last_place_car_number = v },
+				{ id: 'stage1', label: 'Stage 1 Winner', base: 25, rollover: race.rollover_stage1, bind: () => results.stage1_winner_car_number, set: (v) => results.stage1_winner_car_number = v },
+				{ id: 'stage2', label: 'Stage 2 Winner', base: 25, rollover: race.rollover_stage2, bind: () => results.stage2_winner_car_number, set: (v) => results.stage2_winner_car_number = v },
 			]}
 			<div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-4">
 				<h2 class="text-lg font-bold text-gray-900 mb-1">Enter Results</h2>

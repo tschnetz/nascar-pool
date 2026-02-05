@@ -1,6 +1,6 @@
 # NASCAR Pool Manager
 
-A web app to manage a NASCAR fantasy pool for 9 friends. Replaces manual Excel tracking with a mobile-first dashboard.
+A desktop app to manage a NASCAR fantasy pool for 9 friends. Replaces manual Excel tracking with a mobile-first dashboard.
 
 ## How It Works
 
@@ -31,18 +31,12 @@ A web app to manage a NASCAR fantasy pool for 9 friends. Replaces manual Excel t
 
 ### Production:
 - PostgreSQL on Render (Ohio region)
-- Redis via Upstash REST API
-- Never use FLUSHALL on Redis if shared with other apps
 
 ### Environment Variables (.env):
 ```
 # Database - PROD_DATABASE_URL takes precedence if set
 DATABASE_URL=postgres://localhost:5432/nascar_pool
 # PROD_DATABASE_URL=postgres://user:pass@host:5432/db
-
-# Redis (Upstash REST API)
-UPSTASH_REDIS_REST_URL=https://your-instance.upstash.io
-UPSTASH_REDIS_REST_TOKEN=your-token
 ```
 
 ### Startup Output:
@@ -55,23 +49,24 @@ or `(PROD)` when using production database.
 
 ## Quick Start
 
+### Desktop App (pywebview):
 ```bash
-npm run dev          # Start both frontend and backend
+cd frontend && npm run build    # Build frontend (only when changed)
+cd python_backend && python3 run.py   # Launch desktop app
 ```
 
-Or separately:
+### Development (separate servers):
 ```bash
-cd backend && go run cmd/server/main.go    # Backend on :8080
-cd frontend && npm run dev                  # Frontend on :5173
+cd python_backend && python3 -m uvicorn app.main:app --reload --port 8080
+cd frontend && npm run dev      # Frontend on :5173
 ```
 
 ## Architecture
 
-- **Frontend**: SvelteKit 5 + Tailwind CSS (mobile-first PWA)
-- **Backend**: Go + gorilla/mux + pgx (PostgreSQL driver)
+- **Frontend**: Svelte 5 + Tailwind CSS (mobile-first)
+- **Backend**: Python FastAPI + SQLAlchemy
 - **Database**: PostgreSQL
-- **Cache**: Upstash Redis (REST API)
-- **Deployment**: Render.com
+- **Desktop**: pywebview (native window wrapper)
 
 ## Admin Mode
 
@@ -147,20 +142,22 @@ GET  /api/standings        - Get current standings
 ## File Structure
 
 ```
-backend/
-  cmd/server/main.go      - Entry point, routes
-  internal/
-    database/database.go  - PostgreSQL connection (LOCAL/PROD)
-    cache/redis.go        - Upstash Redis client
-    handlers/handlers.go  - API handlers
-    models/models.go      - Data structures
-  migrations/             - SQL schema files
+python_backend/
+  app/
+    __init__.py
+    main.py           - FastAPI app, static file serving
+    database.py       - PostgreSQL connection (LOCAL/PROD)
+    models.py         - SQLAlchemy models
+    routes.py         - API endpoints
+  run.py              - pywebview desktop launcher
+  requirements.txt
 
 frontend/
   src/
-    lib/api.ts           - API client and types
-    routes/              - SvelteKit pages
-    app.css              - Tailwind + custom styles
+    lib/api.js        - API client
+    routes/           - SvelteKit pages
+    app.css           - Tailwind + custom styles
+  build/              - Static build for desktop app
 ```
 
 ## Constraints

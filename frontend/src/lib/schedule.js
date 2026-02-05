@@ -1,18 +1,5 @@
 // 2026 NASCAR Cup Series Schedule with track, TV, and time info
-export interface ScheduleEntry {
-	raceNumber: number | null;
-	date: string;
-	name: string;
-	track: string;
-	stageLaps: string;
-	startTime: string;
-	tv: string;
-	isSpecial: boolean;
-	isOffWeek: boolean;
-	isNonPoints: boolean;
-}
-
-export const schedule: ScheduleEntry[] = [
+export const schedule = [
 	{ raceNumber: null, date: 'Sun., Feb 1', name: 'Cook Out Clash', track: 'Bowman Gray Stadium', stageLaps: 'TBA', startTime: '8:00pm', tv: 'FOX', isSpecial: false, isOffWeek: false, isNonPoints: true },
 	{ raceNumber: null, date: 'Thu., Feb 12', name: 'Daytona 500 Duels', track: 'Daytona International Speedway', stageLaps: 'N/A', startTime: '7:00pm', tv: 'FS1', isSpecial: false, isOffWeek: false, isNonPoints: true },
 	{ raceNumber: 1, date: 'Sun., Feb 15', name: 'DAYTONA 500', track: 'Daytona International Speedway', stageLaps: '65/130/200', startTime: '2:30pm', tv: 'FOX', isSpecial: true, isOffWeek: false, isNonPoints: false },

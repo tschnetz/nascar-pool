@@ -1,0 +1,39 @@
+[build-system]
+requires = ["briefcase"]
+
+[project]
+name = "NASCAR Pool"
+version = "1.0.0"
+description = "NASCAR Fantasy Pool Manager"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name"}
+]
+
+[tool.briefcase]
+project_name = "NASCAR Pool"
+bundle = "com.nascarpool"
+version = "1.0.0"
+icon = "src/nascarpool/resources/nascarpool"
+author = "Your Name"
+
+[tool.briefcase.app.nascarpool]
+formal_name = "NASCAR Pool"
+description = "NASCAR Fantasy Pool Manager"
+sources = ["src/nascarpool"]
+requires = [
+    "toga>=0.4.0",
+    "fastapi>=0.109.0",
+    "uvicorn>=0.27.0",
+    "sqlalchemy>=2.0.0",
+    "psycopg2-binary>=2.9.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[tool.briefcase.app.nascarpool.macOS]
+requires = [
+    "toga-cocoa>=0.4.0",
+]
